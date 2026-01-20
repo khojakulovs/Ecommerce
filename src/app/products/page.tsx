@@ -5,6 +5,9 @@ import Cta from "@/components/Cta";
 
 async function ProductsPage() {
   const res = await fetch("https://fakestoreapi.com/products");
+  if (!res.ok) {
+    throw new Error("API error");
+  }
   const products: ProductType[] = await res.json();
 
   return (
@@ -17,7 +20,7 @@ async function ProductsPage() {
           })}
         </div>
       </section>
-      <Cta/>
+      <Cta />
     </main>
   );
 }
