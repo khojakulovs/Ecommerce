@@ -30,12 +30,12 @@ function ProductDetail() {
 
   //HandleClick
   const handleClick = () => {
-    const products = JSON.parse(localStorage.getItem("carts") as string) || [];
-    const isExist = products.find((item) => item.id === product.id);
+    const products:ProductType[] = JSON.parse(localStorage.getItem("carts") as string) || [];
+    const isExist = products.find((item) => item.id === product?.id);
 
     if (isExist) {
       const updateData = products.map((item) => {
-        if (item.id === product.id)
+        if (item.id === product?.id)
           return { ...item, quantity: item.quantity + 1 };
         else return item;
       });

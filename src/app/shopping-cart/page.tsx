@@ -65,7 +65,7 @@ function ShoppingCart() {
               {products.length !== 0 &&
                 products.map((item) => {
                   return (
-                    <div className="flex flex-col flex-[2] py-3 border rounded shadow-md mb-6">
+                    <div key={item.id} className="flex flex-col flex-[2] py-3 border rounded shadow-md mb-6">
                       <div className="flex flex-row">
                         <div className="flex flex-1">
                           <div className="w-32 h-32 relative">
