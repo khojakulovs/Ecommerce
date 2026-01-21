@@ -16,12 +16,18 @@ function ProductDetail() {
   //UseEffect
   useEffect(() => {
     async function getData() {
+      let data = [];
       try {
-        const res = await fetch(`https://fakestoreapi.com/products/${id}`);
-        const product = await res.json();
-        setProduct(product);
-      } catch (error) {
-        console.log(error);
+        const res = await fetch(`https://fakestoreapi.com/products/${id}`, {
+          cache: "no-store",
+        });
+
+        if (res.ok) {
+          data = await res.json();
+          setProduct(data);
+        }
+      } catch (e) {
+        console.log("API ishlamadi");
       }
     }
 
@@ -30,7 +36,8 @@ function ProductDetail() {
 
   //HandleClick
   const handleClick = () => {
-    const products:ProductType[] = JSON.parse(localStorage.getItem("carts") as string) || [];
+    const products: ProductType[] =
+      JSON.parse(localStorage.getItem("carts") as string) || [];
     const isExist = products.find((item) => item.id === product?.id);
 
     if (isExist) {
@@ -56,7 +63,9 @@ function ProductDetail() {
         </div>
       </div>
       <div className="flex-1 flex flex-col max-md:px-6">
-        <h3 className="font-semibold text-[30px] line-clamp-2">{product?.title}</h3>
+        <h3 className="font-semibold text-[30px] line-clamp-2">
+          {product?.title}
+        </h3>
         <h3 className="font-semibold text-[25px] text-gray-600 mb-2">
           ${product?.price}
         </h3>

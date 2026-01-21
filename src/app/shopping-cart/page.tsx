@@ -1,4 +1,5 @@
 "use client";
+
 import CustomImage from "@/components/Image";
 import ReactStars from "react-stars";
 import { IoClose } from "react-icons/io5";
@@ -7,9 +8,15 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 
 function ShoppingCart() {
-  const [products, setProducts] = useState<ProductType[]>(
-    JSON.parse(localStorage.getItem("carts") as string) || [],
-  );
+  const [products, setProducts] = useState<ProductType[]>([]);
+
+  useEffect(() => {
+    const data = localStorage.getItem("carts") as string;
+    if (data) {
+      setProducts(JSON.parse(data));
+    }
+  }, []);
+
   const [total, setTotal] = useState<number>(0);
 
   //RemoveCart
@@ -57,7 +64,9 @@ function ShoppingCart() {
     <>
       {products.length ? (
         <div className="min-h-screen max-w-[950px] mx-auto mt-20">
-          <h1 className="text-center font-semibold text-3xl mb-6">Cart Items</h1>
+          <h1 className="text-center font-semibold text-3xl mb-6">
+            Cart Items
+          </h1>
 
           <div className="flex max-md:flex-col flex-row gap-x-5">
             {/* List Cart */}
@@ -65,7 +74,10 @@ function ShoppingCart() {
               {products.length !== 0 &&
                 products.map((item) => {
                   return (
-                    <div key={item.id} className="flex flex-col flex-[2] py-3 border rounded shadow-md mb-6">
+                    <div
+                      key={item.id}
+                      className="flex flex-col flex-[2] py-3 border rounded shadow-md mb-6"
+                    >
                       <div className="flex flex-row">
                         <div className="flex flex-1">
                           <div className="w-32 h-32 relative">
