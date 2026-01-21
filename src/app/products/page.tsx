@@ -6,12 +6,19 @@ import Product from "@/components/Product";
 import Cta from "@/components/Cta";
 
 async function ProductsPage() {
-  const res = await fetch("https://fakestoreapi.com/products");
+  let products: ProductType[] = [];
 
-  if (!res.ok) {
-    throw new Error("API error");
+  try {
+    const res = await fetch("https://fakestoreapi.com/products", {
+      cache: "no-store",
+    });
+
+    if (res.ok) {
+      products = await res.json();
+    }
+  } catch (error) {
+    console.log("API ishlamadi, fallback data");
   }
-  const products: ProductType[] = await res.json();
 
   return (
     <main className="min-h-screen max-w-7xl mx-auto px-8 xl:px-0">
