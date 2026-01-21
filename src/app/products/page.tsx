@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import Feature from "@/components/Feature";
 import { ProductType } from "@/interfaces";
 import Product from "@/components/Product";
@@ -5,6 +7,7 @@ import Cta from "@/components/Cta";
 
 async function ProductsPage() {
   const res = await fetch("https://fakestoreapi.com/products");
+
   if (!res.ok) {
     throw new Error("API error");
   }
