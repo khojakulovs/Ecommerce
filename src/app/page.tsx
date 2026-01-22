@@ -1,3 +1,5 @@
+"use client";
+
 import Cta from "@/components/Cta";
 import Product from "@/components/Product";
 import { ProductType } from "@/interfaces";
