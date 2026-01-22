@@ -15,7 +15,7 @@ function Feature() {
                 stroke="currentColor"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                stroke-width="2"
+                strokeWidth={2}
                 className="w-6 h-6"
                 viewBox="0 0 24 24"
               >
@@ -39,7 +39,7 @@ function Feature() {
                   stroke="currentColor"
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeWidth={2}
                   className="w-4 h-4 ml-2"
                   viewBox="0 0 24 24"
                 >
@@ -55,7 +55,7 @@ function Feature() {
                 stroke="currentColor"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                stroke-width="2"
+                strokeWidth={2}
                 className="w-6 h-6"
                 viewBox="0 0 24 24"
               >
@@ -81,7 +81,7 @@ function Feature() {
                   stroke="currentColor"
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeWidth={2}
                   className="w-4 h-4 ml-2"
                   viewBox="0 0 24 24"
                 >
@@ -97,7 +97,7 @@ function Feature() {
                 stroke="currentColor"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                stroke-width="2"
+                strokeWidth={2}
                 className="w-6 h-6"
                 viewBox="0 0 24 24"
               >
@@ -122,7 +122,7 @@ function Feature() {
                   stroke="currentColor"
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeWidth={2}
                   className="w-4 h-4 ml-2"
                   viewBox="0 0 24 24"
                 >

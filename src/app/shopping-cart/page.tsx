@@ -22,7 +22,9 @@ function ShoppingCart() {
   //RemoveCart
   const removeCart = (id: number) => {
     const updateCart = products.filter((item) => item.id !== id);
-    localStorage.setItem("carts", JSON.stringify(updateCart));
+    useEffect(() => {
+      localStorage.setItem("carts", JSON.stringify(updateCart));
+    }, [updateCart]);
     setProducts(updateCart);
   };
 
@@ -32,7 +34,10 @@ function ShoppingCart() {
       if (item.id === id) return { ...item, quantity: item.quantity + 1 };
       else return item;
     });
-    localStorage.setItem("carts", JSON.stringify(updateIncrement));
+    useEffect(() => {
+      localStorage.setItem("carts", JSON.stringify(updateIncrement));
+    }, [updateIncrement]);
+
     setProducts(updateIncrement);
   };
 
@@ -47,7 +52,9 @@ function ShoppingCart() {
         if (item.id === id) return { ...item, quantity: item.quantity - 1 };
         else return item;
       });
-      localStorage.setItem("carts", JSON.stringify(updataDecrement));
+      useEffect(() => {
+        localStorage.setItem("carts", JSON.stringify(updataDecrement));
+      }, [updataDecrement]);
       setProducts(updataDecrement);
     }
   };
