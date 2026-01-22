@@ -13,11 +13,13 @@ async function ProductsPage() {
       cache: "no-store",
     });
 
-    if (res.ok) {
-      products = await res.json();
+    if (!res.ok) {
+      throw new Error(`API error: ${res.status}`);
     }
-  } catch (error) {
-    console.log("API ishlamadi, fallback data");
+
+    products = await res.json();
+  } catch (e) {
+    console.error("API ishlamadi:", e);
   }
 
   return (

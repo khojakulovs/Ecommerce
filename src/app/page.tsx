@@ -1,5 +1,4 @@
 import Cta from "@/components/Cta";
-import Hero from "@/components/Hero";
 import Product from "@/components/Product";
 import { ProductType } from "@/interfaces";
 import Statistic from "@/components/Statistic";
@@ -12,11 +11,14 @@ export default async function Home() {
       cache: "no-store",
     });
 
-    if (res.ok) {
-      products = await res.json();
+    if (!res.ok) {
+      throw new Error(`API error: ${res.status}`);
     }
+
+    products = await res.json();
+    
   } catch (e) {
-    console.log("API ishlamadi");
+    console.error("API ishlamadi:", e);
   }
 
   return (
